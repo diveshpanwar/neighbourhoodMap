@@ -2,7 +2,8 @@
 var map;
 var markers = [];
 var infoWindow;
-
+var nav = $(".nav");
+var mapContainer  = $(".map-container");
 var locationArray = [
         {title: "Persenni Cottage", location: {lat: 31.100142, lng: 77.120649}, desc: "This is my residende.", id:0},
         {title: "Shishu Shiksha Niketan", location: {lat: 31.10073, lng: 77.121685}, desc: "This is my first school.", id:1},
@@ -39,9 +40,9 @@ var ViewModel = function() {
             });
           }
           if (window.innerWidth <=950) {
-            $(".nav").hide();
-            $(".nav").css("width","24%");
-            $(".map-container").show();
+            nav.hide();
+            nav.css("width","24%");
+            mapContainer.show();
           }
        };
 };
@@ -53,16 +54,15 @@ $(function() {
   $(window).resize(function(){location.reload();});
   //click on menu Icon
   $("#menuIcon").click(function() {
-    console.log("click");
-    $(".map-container").fadeOut("slow");
-    $(".nav").css("width","100%");
-    $(".nav").show();
+    mapContainer.fadeOut("slow");
+    nav.css("width","100%");
+    nav.show();
   });
   //click on the close button
   $("#close").click(function() {
-    $(".nav").hide();
-    $(".nav").css("width","24%");
-    $(".map-container").show();
+    nav.hide();
+    nav.css("width","24%");
+    mapContainer.show();
   });
 
 });
