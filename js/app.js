@@ -51,7 +51,7 @@ ko.applyBindings(new ViewModel());
 $(function() {
 
   //reload on window resize
-  $(window).resize(function(){location.reload();});
+  // $(window).resize(function(){location.reload();});
   //click on menu Icon
   $("#menuIcon").click(function() {
     nav.css("width","100%");
