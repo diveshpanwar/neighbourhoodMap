@@ -21,9 +21,9 @@
     "divesh panwar"
   ],
   "repository": {
-   "type": "git",
-   "url": "https://github.com/diveshpanwar/neighbourhoodMap.git"
- },
+    "type": "git",
+    "url": "https://github.com/diveshpanwar/neighbourhoodMap.git"
+  },
   "author": "Divesh Panwar",
   "license": "ISC"
 }

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neighbourhood Map</title>
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body class="container1">
+    <div class="col-12 shadow">
+      <h1 class="title text-center">Neighbourhod Map</h1>
+    </div>
+    <div class="container2">
+    <div class="col-3 nav">
+      <span class="text-heading">Loctions</span>
+      <span class="fa fa-close right" id="close"></span>
+      <hr class="gradient">
+      <div class="input-group">
+        <span class="btn-filter input-group-addon" id="filter"><i class="fa fa-filter"></i></span>
+        <input type="text" id="filterPlaces" class="form-control" placeholder="Filter Places">
+      </div>
+      <div class="panel panel-primary mtop">
+        <div class="panel-heading">
+          <h3 class="panel-title">Location List</h3>
+        </div>
+        <div class="panel-body">
+          <ul class="list-group" data-bind="foreach: locations">
+            <li class="list-group-item pointer" data-bind="text: title, click: $parent.popUpInfoWindow"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="col-9 map-container">
+      <div class="map-container-heading">
+        <span class="fa fa-bars menuIcon" id="menuIcon"></span>
+        <span class="text-center text-heading text-heading-center">Maps</span>
+      </div>
+      <hr class="gradient">
+      <div class="map" id="map">
+      </div>
+    </div>
+  </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" async defer></script>
+    <script src="js/knockout.js"></script>
+    <script src="js/app.js" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZZo4BF3LxNbudIVLvzwk6sCG1P9BhIBA&libraries=places&callback=initMap" async defer></script>
+  </body>
+</html>
