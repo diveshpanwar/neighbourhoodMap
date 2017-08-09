@@ -54,14 +54,14 @@ $(function() {
   $(window).resize(function(){location.reload();});
   //click on menu Icon
   $("#menuIcon").click(function() {
-    mapContainer.fadeOut("slow");
     nav.css("width","100%");
+    mapContainer.hide();
     nav.show();
   });
   //click on the close button
   $("#close").click(function() {
-    nav.hide();
     nav.css("width","24%");
+    nav.hide();
     mapContainer.show();
   });
 

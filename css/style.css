@@ -11,13 +11,12 @@ body {
   flex-wrap: wrap;
   left: 0;
   top: 0;
-  right:-10px;
 }
 .container2 {
   margin-top: 5px;
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  margin: 0 auto;
 }
 
 .col-3 {
@@ -39,7 +38,6 @@ body {
 .map-container {
   background-color: #fff;
   color: #222;
-  margin-left: -5px;
   right: 0;
 }
 
@@ -50,7 +48,6 @@ body {
   color: #222;
   font-weight: bold;
   padding-left: 15px;
-  margin-left: -10px;
 }
 
 .menuIcon {
@@ -119,6 +116,7 @@ body {
 @media only screen and (max-width: 950px) {
   .nav {
     display: none;
+    width: 100%;
   }
   .right {
     display: inline-block;
@@ -131,7 +129,7 @@ body {
   }
   .map-container {
     width: 100%;
-    margin-left: -10px;
+    margin-left: 0;
   }
   .text-heading, .menuIcon, .title, .right  {
     font-size: 3vh;
