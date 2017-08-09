@@ -105,7 +105,7 @@ body {
 /*map*/
 .map {
   width: 99%;
-  height: 90vh;
+  height: 85vh;
   margin-left: auto;
   margin-right: auto;
 }
@@ -126,11 +126,14 @@ body {
   .menuIcon {
     display: inline-block;
   }
+  .text-heading-center {
+    margin-left: 40%;
+  }
   .map-container {
     width: 100%;
     margin-left: -10px;
   }
   .text-heading, .menuIcon, .title, .right  {
-    font-size: 2.5vh;
+    font-size: 3vh;
   }
 }

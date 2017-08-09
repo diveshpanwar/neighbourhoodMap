@@ -39,9 +39,9 @@ var ViewModel = function() {
             });
           }
           if (window.innerWidth <=950) {
-            $(".nav").hide(500);
+            $(".nav").hide();
             $(".nav").css("width","24%");
-            $(".map-container").show(500);
+            $(".map-container").show();
           }
        };
 };
@@ -56,13 +56,13 @@ $(function() {
     console.log("click");
     $(".map-container").fadeOut("slow");
     $(".nav").css("width","100%");
-    $(".nav").show(500);
+    $(".nav").show();
   });
   //click on the close button
   $("#close").click(function() {
-    $(".nav").hide(500);
+    $(".nav").hide();
     $(".nav").css("width","24%");
-    $(".map-container").show(500);
+    $(".map-container").show();
   });
 
 });
