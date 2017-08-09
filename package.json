@@ -1,0 +1,29 @@
+{
+  "name": "fend-neighbourhood-map",
+  "version": "1.0.0",
+  "description": "This is a project based on google map API.",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-cli": "^1.4.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fend-neighbourhood-map",
+    "neighbourhood-map",
+    "divesh",
+    "divesh panwar"
+  ],
+  "repository": {
+   "type": "git",
+   "url": "https://github.com/diveshpanwar/neighbourhoodMap.git"
+ },
+  "author": "Divesh Panwar",
+  "license": "ISC"
+}
