@@ -2,6 +2,7 @@
 var map;
 var markers = [];
 var infoWindow;
+var bounds;
 var nav = $(".nav");
 var mapContainer  = $(".map-container");
 var locationArray = [
@@ -76,6 +77,7 @@ function initMap() {
       infoWindow = infoWindow || new google.maps.InfoWindow({
        content: "dummy"
      });
+     bounds = new google.maps.LatLngBounds();
       for(var i = 0; i< locationArray.length; i++) {
         var position = locationArray[i].location;
         var title = locationArray[i].title;
@@ -89,10 +91,12 @@ function initMap() {
           map: map
         });
         markers.push(marker);
+        bounds.extend(markers[i].position);
         marker.addListener('click', function() {
           populateInfoWindow(this, infoWindow);
         });
       }
+      map.fitBounds(bounds);
     }
 
      function populateInfoWindow(marker, infoWindow) {
