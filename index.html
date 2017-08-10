@@ -20,8 +20,13 @@
       <hr class="gradient">
       <div class="input-group">
         <span class="btn-filter input-group-addon" id="filter"><i class="fa fa-filter"></i></span>
-        <input type="text" id="filterPlaces" class="form-control" placeholder="Filter Places">
+        <input type="text" id="filterPlaces" name="filterPlaces" class="form-control" placeholder="Filter Places" data-bind="value: query, valueUpdate: 'keyup'">
       </div>
+      <ul class="list-group" data-bind="visible:query, template: {name: 'location', id: 'location', foreach: filterLocations}">
+      </ul>
+      <script type="text/html" id="location">
+        <li class="list-group-item pointer" data-bind="text: title, click: $parent.popUpInfoWindow"></li>
+      </script>
       <div class="panel panel-primary mtop">
         <div class="panel-heading">
           <h3 class="panel-title">Location List</h3>

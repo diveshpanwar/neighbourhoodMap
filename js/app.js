@@ -10,7 +10,9 @@ var locationArray = [
         {title: "Shishu Shiksha Niketan", location: {lat: 31.10073, lng: 77.121685}, desc: "This is my first school.", id:1},
         {title: "K.V Jutogh Cantt.", location: {lat: 31.098916, lng: 77.11202}, desc: "This is my second school.", id:2},
         {title: "UIIT", location: {lat: 31.111849, lng: 77.134784}, desc: "This is my university.", id:3},
-        {title: "The Mall", location: {lat: 31.104805, lng: 77.173396}, desc: "This is for the street view.", id:4}
+        {title: "The Mall, Shimla", location: {lat: 31.104805, lng: 77.173396}, desc: "This is the famous Mall Road Shimla", id:4},
+        {title: "Jakhoo Temple", location: {lat: 31.101236, lng: 77.183877}, desc: "This is the famous Lord Hanuman Temple.", id:5},
+        {title: "Kunihar", location: {lat: 31.079539, lng: 76.961426}, desc: "This is a beautiful village located in Dist. Shimla.", id:6}
       ];
 
 var addLocation = function(data) {
@@ -26,6 +28,19 @@ var ViewModel = function() {
   locationArray.forEach(function(location) {
     self.locations.push(new addLocation(location));
   });
+  //query and filters
+  this.query = ko.observable("");
+
+  self.filterLocations = ko.dependentObservable(function() {
+  		var search = this.query().toLowerCase();
+  		return ko.utils.arrayFilter(self.locations(), function(location) {
+        return location.title().toLowerCase().indexOf(search) >= 0;
+        // console.log(location.title().toLowerCase().indexOf(search) >= 0);
+  		});
+  	}, this);
+
+
+  //show the info window when the list item is clicked
   self.popUpInfoWindow = function () {
     infoWindow = infoWindow || new google.maps.InfoWindow({
        content: "dummy"
@@ -98,7 +113,7 @@ function initMap() {
       }
       map.fitBounds(bounds);
     }
-
+//populate the info window with the information when the marker is clicked
      function populateInfoWindow(marker, infoWindow) {
        console.log(marker);
        infoWindow.setContent('<div>'+marker.title+'</div><div>'+marker.position+'</div><div>'+marker.desc+'</div>');
