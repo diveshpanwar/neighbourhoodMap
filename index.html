@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Neighbourhood Map</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -13,7 +14,7 @@
     <div class="col-12 shadow">
       <h1 class="title text-center">Neighbourhod Map</h1>
     </div>
-    <div class="container2">
+    <div class="container2 text-center">
     <div class="col-3 nav">
       <span class="text-heading">Loctions</span>
       <span class="fa fa-close right" id="close"></span>
@@ -22,12 +23,12 @@
         <span class="btn-filter input-group-addon" id="filter"><i class="fa fa-filter"></i></span>
         <input type="text" id="filterPlaces" name="filterPlaces" class="form-control" placeholder="Filter Places" data-bind="value: query, valueUpdate: 'keyup'">
       </div>
-      <ul class="list-group" data-bind="visible:query, template: {name: 'location', id: 'location', foreach: filterLocations}">
+      <ul class="list-group text-left" data-bind="visible:query, template: {name: 'location', id: 'location', foreach: filterLocations}">
       </ul>
       <script type="text/html" id="location">
         <li class="list-group-item pointer" data-bind="text: title, click: $parent.popUpInfoWindow"></li>
       </script>
-      <div class="panel panel-primary mtop">
+      <div class="panel panel-primary mtop text-left">
         <div class="panel-heading">
           <h3 class="panel-title">Location List</h3>
         </div>
@@ -39,9 +40,9 @@
       </div>
     </div>
     <div class="col-9 map-container">
-      <div class="map-container-heading">
+      <div class="map-container-heading text-left">
         <span class="fa fa-bars menuIcon" id="menuIcon"></span>
-        <span class="text-center text-heading text-heading-center">Maps</span>
+        <span class="text-heading text-heading-center">Maps</span>
       </div>
       <hr class="gradient">
       <div class="map" id="map">

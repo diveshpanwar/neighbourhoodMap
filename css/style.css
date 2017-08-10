@@ -34,6 +34,7 @@ body {
 .title {
   color: #fff;
   background-color: #222;
+  font-family: 'Lobster', cursive;
 }
 .map-container {
   background-color: #fff;
@@ -88,8 +89,12 @@ body {
 .text-heading {
   font-size: 20px;
   font-weight: bold;
+  font-family: 'Lobster', cursive;
 }
-
+.panel-title
+{
+  font-family: 'Lobster';
+}
 .text-heading-center {
   margin-left: 45%;
 }
