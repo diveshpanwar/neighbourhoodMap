@@ -4,6 +4,7 @@ var markers = [];
 var infoWindow;
 var bounds;
 var tinyResetter = {};
+// tinyResetter remember the last clicked marker, i.e marker id and marker icon in order to reset the marker icon
 var nav = $(".nav");
 var mapContainer  = $(".map-container");
 var locationArray = [
@@ -46,12 +47,12 @@ var setWindowMarkerandDetails = function(marker, infoWindow) {
     }).done(function() {
       infoWindow.setContent('<h3 class="text-center">'+marker.title+
       '</h3><h5>Position: '+marker.position
-      +'</h5><hr class="gradient"><div><h4>Food Points</h4><ul>'
+      +'</h5><hr class="gradient"><div><div class="text-left"><h4>Food Points</h4><ul>'
       +foodPoints+'</ul></div>');
     }).fail(function() {
       infoWindow.setContent('<h3 class="text-center">'+marker.title+
       '</h3><h5>Position: '+marker.position
-      +'</h5><hr class="gradient"><div><h4>Food Points</h4><ul>Unable to Load Data at the Moment.</ul></div>');
+      +'</h5><hr class="gradient"><div class="text-left"><h4>Food Points</h4><ul>Unable to Load Data at the Moment.</ul></div>');
     });
 
   if(infoWindow.marker != marker) {
