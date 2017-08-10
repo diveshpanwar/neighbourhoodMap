@@ -46,13 +46,10 @@ var setWindowMarkerandDetails = function(marker, infoWindow) {
       }
     }).done(function() {
       infoWindow.setContent('<h3 class="text-center">'+marker.title+
-      '</h3><h5>Position: '+marker.position
-      +'</h5><hr class="gradient"><div><div class="text-left"><h4>Food Points</h4><ul>'
-      +foodPoints+'</ul></div>');
+      '</h3><h5>Position: '+marker.position+'</h5><hr class="gradient"><div><div class="text-left"><h4>Food Points</h4><ul>'+foodPoints+'</ul></div>');
     }).fail(function() {
       infoWindow.setContent('<h3 class="text-center">'+marker.title+
-      '</h3><h5>Position: '+marker.position
-      +'</h5><hr class="gradient"><div class="text-left"><h4>Food Points</h4><ul>Unable to Load Data at the Moment.</ul></div>');
+      '</h3><h5>Position: '+marker.position+'</h5><hr class="gradient"><div class="text-left"><h4>Food Points</h4><ul>Unable to Load Data at the Moment.</ul></div>');
     });
 
   if(infoWindow.marker != marker) {
@@ -78,7 +75,7 @@ var ViewModel = function() {
   		var search = this.query().toLowerCase();
   		return ko.utils.arrayFilter(self.locations(), function(location) {
         var id = location.id();
-          if (search =="") {
+          if (search ==="") {
             if(markers[id])
             markers[id].setIcon('http://maps.google.com/mapfiles/ms/icons/red-dot.png');
           }
