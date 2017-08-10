@@ -3,6 +3,7 @@ var map;
 var markers = [];
 var infoWindow;
 var bounds;
+var tinyResetter = {};
 var nav = $(".nav");
 var mapContainer  = $(".map-container");
 var locationArray = [
@@ -25,6 +26,11 @@ var addLocation = function(data) {
 
 //set the marker and add the window details...
 var setWindowMarkerandDetails = function(marker, infoWindow) {
+  if (tinyResetter.icon) {
+    markers[tinyResetter.id].setIcon(tinyResetter.icon);
+  }
+  tinyResetter.icon = marker.getIcon();
+  tinyResetter.id = marker.id;
   infoWindow.setContent('Loading Data...');
   var infoURL = "https://api.foursquare.com/v2/venues/search?ll="+marker.position.lat()+","+marker.position.lng()+"&query=food&v=20150609&limit=5&client_id=IT3ZFQCT45XJLD3D4ICFC1D2EL5XCHSBJ0T24Q4BICRSY0EE&client_secret=KUCRY3HL1QEXIYIX3JDCDEZIZS3ICSCYOIW5MJ4CVHYCHT44";
   var foodPoints = "";
@@ -50,9 +56,10 @@ var setWindowMarkerandDetails = function(marker, infoWindow) {
 
   if(infoWindow.marker != marker) {
      infoWindow.marker = marker;
-     // marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
+     marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
      infoWindow.open(map, marker);
      infoWindow.addListener('closeclick', function() {
+       marker.setIcon(originalIcon);
        infoWindow.marker = null;
      });
    }
@@ -140,6 +147,7 @@ function initMap() {
         var marker = new google.maps.Marker({
           position: position,
           title: title,
+          icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
           animation: google.maps.Animation.DROP,
           id: i,
           map: map
