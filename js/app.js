@@ -17,7 +17,7 @@ var locationArray = [
         {title: "Kangra, Himachal Pradesh", location: {lat: 32.099803, lng: 76.269101}, desc: "This is another district of Himachal Pradesh.", id:6},
         {title: "Solan, Himachal Pradesh", location: {lat: 30.904486, lng: 77.096736}, desc: "This is a beautiful district of Himachal Pradesh.", id:7}
       ];
-
+//function to add location to the observable locations array
 var addLocation = function(data) {
   this.title = ko.observable(data.title);
   this.location = ko.observable(data.location);
@@ -60,12 +60,11 @@ var setWindowMarkerandDetails = function(marker, infoWindow) {
      marker.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png');
      infoWindow.open(map, marker);
      infoWindow.addListener('closeclick', function() {
-       marker.setIcon(originalIcon);
        infoWindow.marker = null;
      });
    }
 };
-
+//the view model
 var ViewModel = function() {
   var self = this;
   this.locations = ko.observableArray([]);
@@ -94,7 +93,6 @@ var ViewModel = function() {
   		});
   	}, this);
 
-
   //show the info window when the list item is clicked
   self.popUpInfoWindow = function () {
     infoWindow = infoWindow || new google.maps.InfoWindow({
@@ -111,18 +109,16 @@ var ViewModel = function() {
 };
 
 ko.applyBindings(new ViewModel());
-$(function() {
 
+$(function() {
   //reload on window resize
   // $(window).resize(function(){location.reload();});
-
   //click on menu Icon
   $("#menuIcon").click(function() {
     nav.css("width","100%");
     mapContainer.hide();
     nav.show();
   });
-
   //click on the close button
   $("#close").click(function() {
     nav.css("width","24%");
@@ -130,6 +126,9 @@ $(function() {
     mapContainer.show();
   });
 
+  if(!map) {
+    $("#map").html('<h2 class="text-center text-danger"><span class="fa fa-warning"></span> Unable to load the map at the moment!</h2>');
+  }
 });
 
 function initMap() {
@@ -158,12 +157,8 @@ function initMap() {
       }
       markers.forEach(function(marker) {
         marker.addListener('click', function() {
-          populateInfoWindow(this, infoWindow);
+          setWindowMarkerandDetails(this, infoWindow);
         });
       });
       map.fitBounds(bounds);
-    }
-//populate the info window with the information when the marker is clicked
-     function populateInfoWindow(marker, infoWindow) {
-        setWindowMarkerandDetails(marker, infoWindow);
-      }
+}
